@@ -35,7 +35,8 @@ class Reindeer {
    * @custom
    ****************************************************/
   show() {
-
+    image(reindeerImg, this.x, this.y, this.width, this.height);
+    console.log(this.width, this.height);
   }
 
 
@@ -44,7 +45,16 @@ class Reindeer {
    * @custom
    ****************************************************/
   update() {
-
+    this.speed += this.gravity;
+    this.y += this.speed;
+    if (this.y > CANVAS_HEIGHT - this.height) {
+      this.y = CANVAS_HEIGHT - this.height;
+      this.speed = 0;
+    }
+    if (this.y < 0) {
+      this.y = 0;
+      this.speed = 0;
+    }
   }
 
 
@@ -53,6 +63,6 @@ class Reindeer {
    * @custom
    ****************************************************/
   up() {
-
+    this.speed += this.lift;
   }
 }
