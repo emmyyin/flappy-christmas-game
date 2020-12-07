@@ -8,13 +8,15 @@ This is a guide for making Flappy Reindeer Game. Just follow this guide and at t
 # 0. **Getting Started**
 
 ## 0.1. **Download project from GitHub**
-Download project by clicking the green button named “Clone or download”. When a small dialogue appears, click “Download ZIP”. Unzip the folder.
+Either: 
+* Clone the project if you're familiar with git, or
+* Download project by clicking the green button named “Clone or download”. When a small dialogue appears, click “Download ZIP”. Unzip the folder.
 
 ## 0.2. **Install Visual Studio Code**
 Download Visual Studio Code from https://code.visualstudio.com/, install, and open the unzipped folder.
 
 ## 0.3. **Install Live Server**
-In Visual Studio Code you can install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) as an extension from the Visual Studio Code Marketplace, by clicking this [link](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+In Visual Studio Code you can install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) as an extension from the Visual Studio Code Marketplace, by clicking this [link](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), or by finding it among Visual Studio Code's extensions.
 
 ## 0.4. **Start Live Server**
 After Live Server is installed, you should be able to click “Go Live” in the bottom right corner of the Visual Studio Code editor.
