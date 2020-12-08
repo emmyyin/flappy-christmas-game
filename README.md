@@ -13,7 +13,7 @@ Either:
 * Download project by clicking the green button named “Clone or download”. When a small dialogue appears, click “Download ZIP”. Unzip the folder.
 
 ## 0.2. **Install Visual Studio Code**
-Download Visual Studio Code from https://code.visualstudio.com/, install, and open the unzipped folder.
+Download Visual Studio Code from https://code.visualstudio.com/ and install it. Start Visual Studio Code and open the unzipped folder of the project.
 
 ## 0.3. **Install Live Server**
 In Visual Studio Code you can install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) as an extension from the Visual Studio Code Marketplace, by clicking this [link](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), or by finding it among Visual Studio Code's extensions.
