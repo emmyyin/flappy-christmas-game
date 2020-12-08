@@ -30,7 +30,7 @@ class Background {
    * @custom
    ****************************************************/
   show() {
-
+    image(backgroundImg, this.x, this.y, this.width, this.height);
   }
 
 
@@ -41,6 +41,10 @@ class Background {
    * @custom
    ****************************************************/
   update() {
-
+    this.x -= this.speed;
+    if (this.x + this.width <= CANVAS_WIDTH) {
+      image(backgroundImg, this.x + this.width, 0, this.width, this.height);
+      if (this.x <= -this.width) this.x = 0;
+    }
   }
 }

@@ -17,7 +17,7 @@ class Present {
    * @custom
    ****************************************************/
   show() {
-  
+    image(presentImg, this.x, this.y, this.width, this.height);
   }
 
 
@@ -27,7 +27,7 @@ class Present {
    * Use x and speed.
    ****************************************************/
   update() {
-    
+    this.x -= this.speed;
   }
 
 
@@ -35,6 +35,14 @@ class Present {
    * Here you want the reindeer to hit the present
    ****************************************************/
   hits(reindeer) {
-
+    if (this.y < reindeer.y + reindeer.height && this.y + this.height > reindeer.y) {
+      if (this.x < reindeer.x + reindeer.width && this.x + this.width > reindeer.x) {
+        if (!this.taken) {
+          this.taken = true;
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }

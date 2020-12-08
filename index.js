@@ -52,7 +52,9 @@ const CANVAS_HEIGHT = 600;
  * @p5jsMethod
  ****************************************************/
 function preload() {
-
+    backgroundImg = loadImage('images/background.png');
+    reindeerImg = loadImage("images/reindeer.png");
+    presentImg = loadImage("images/present.png");
 }
 
 
@@ -63,7 +65,9 @@ function preload() {
  * @p5jsMethod
  ****************************************************/
 function setup() {
-
+    createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+    background = new Background();
+    reindeer = new Reindeer();
 }
 
 
@@ -74,7 +78,28 @@ function setup() {
  * @p5jsMethod
  ****************************************************/
 function draw() {
+    background.show();
+    background.update();
+    reindeer.show();
+    reindeer.update();
+    if (frameCount % 100 === 0) pipes.push(new Pipe());
+    for (let pipe of pipes) {
+        pipe.show();
+        pipe.update();
+        if (pipe.hits(reindeer)) gameOver();
+        if (pipe.pass(reindeer)) score++;
+      }
+    showScore();
+    if (frameCount % 75 === 0) presents.push(new Present());
 
+    for (let present of presents) {
+        present.show();
+        present.update();
+        if (present.hits(reindeer)) {
+          score += 3;
+          presents.splice(presents.indexOf(present), 1);
+        }
+      }
 }
 
 
@@ -84,7 +109,10 @@ function draw() {
  * @p5jsMethod
  ****************************************************/
 function keyPressed() {
-
+    if (key === " ") {
+        reindeer.up();
+        if (isOver) startGame();
+    }
 }
 
 
@@ -96,7 +124,13 @@ function keyPressed() {
  * @customMethod
  ****************************************************/
 function startGame() {
-
+        background = new Background();  // Reset the background's x position.
+        reindeer = new Reindeer();              // we create a new reindeer to original position.
+        pipes = [];                     // We will need an empty pipes array to reset pipe positions.
+        presents = [];                  // We will need an empty presents array. We will implement later.
+        isOver = false;                 // Set isOver to false when starting the game again.
+        loop();                         // Start looping again (adding frames), else game will be paused.
+        score = 0;                      // We set the score to 0. We will implement this in the next step!
 }
 
 
@@ -107,7 +141,11 @@ function startGame() {
  * @customMethod
  ****************************************************/
 function gameOver() {
-
+    textSize(50);
+  fill(000);
+  text("GAME OVER", 50, 300);
+  isOver = true;
+  noLoop();
 }
 
 
@@ -118,5 +156,7 @@ function gameOver() {
  * @customMethod
  ****************************************************/
 function showScore() {
-
+    fill(000);
+  textSize(32);
+  text("Score: " + score, 1, 32);
 }
