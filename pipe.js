@@ -2,7 +2,7 @@
  * pipe.js
  *
  * Our predefined variables:
- * 
+ *
  *   - speed         contains the pipe speed that we will use for moving animation.
  *   - width         the width of the pipe.
  *   - x             x-axis position of pipe.
@@ -10,15 +10,15 @@
  *   - bottomY       the lower pipe's y-axis positioning.
  *   - topHeight     the upper pipe's height.
  *   - bottomHeight  the lower pipe's height.
- * 
+ *
  * Our predefined methods:
- * 
+ *
  *   - show()        will be used for drawing an upper and lower pipe.
  *   - update()      will be used for animation, in this case, moving the pipes from right to left on the canvas.
  *   - hits()        will be used for checking if our reindeer hits a pipe.
  *   - pass()        will be used for checking if our reindeer passes (NOT hits) a pipe.
  *   - offscreen()   will be used for checking of the pipe has moved outside the canvas.
- * 
+ *
  ****************************************************/
 
 class Pipe {
@@ -37,7 +37,9 @@ class Pipe {
    * @custom
    ****************************************************/
   show() {
-
+    fill(121, 85, 72);
+    rect(this.x, 0, this.width, this.topHeight);
+    rect(this.x, this.bottomY, this.width, this.bottomHeight);
   }
 
   /****************************************************
@@ -47,7 +49,7 @@ class Pipe {
    * @custom
    ****************************************************/
   update() {
-
+    this.x -= this.speed;
   }
 
   /****************************************************
@@ -55,7 +57,18 @@ class Pipe {
    * @custom
    ****************************************************/
   hits(reindeer) {
-
+    if (
+      reindeer.y < this.topHeight ||
+      reindeer.y + reindeer.height > CANVAS_HEIGHT - this.bottomHeight
+    ) {
+      if (
+        reindeer.x + reindeer.width > this.x &&
+        reindeer.x < this.x + this.width
+      ) {
+        return true;
+      }
+    }
+    return false;
   }
 
   /****************************************************
@@ -63,7 +76,11 @@ class Pipe {
    * @custom
    ****************************************************/
   pass(reindeer) {
-
+    if (reindeer.x > this.x && !this.passed) {
+      this.passed = true;
+      return true;
+    }
+    return false;
   }
 
   /****************************************************
@@ -71,7 +88,5 @@ class Pipe {
    * Use the variables in the top
    * @custom
    ****************************************************/
-  offscreen() {
-
-  }
+  offscreen() {}
 }
