@@ -23,11 +23,11 @@
 
 class Pipe {
   speed = 2;
-  topHeight = random(CANVAS_HEIGHT / 2);
+  topHeight = random(CANVAS_HEIGHT - 100);
   width = 20;
   x = CANVAS_WIDTH;
   topY = 0;
-  bottomHeight = random(CANVAS_HEIGHT / 2);
+  bottomHeight = random(CANVAS_HEIGHT - this.topHeight) - 100;
   bottomY = CANVAS_HEIGHT - this.bottomHeight;
 
   /****************************************************

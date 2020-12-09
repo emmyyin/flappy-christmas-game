@@ -39,6 +39,7 @@ let backgroundImg;
 let presentImg;
 let isOver = false;
 let score = 0;
+let highScore = 0;
 const CANVAS_WIDTH = 400;
 const CANVAS_HEIGHT = 600;
 
@@ -136,6 +137,12 @@ function gameOver() {
   textSize(50);
   fill(000);
   text("GAME OVER", 50, 300);
+  if (score > highScore) {
+    highScore = score;
+    textSize(32);
+    fill(000);
+    text("New High Score: " + highScore, 70, 370);
+  }
   isOver = true;
   noLoop();
 }
