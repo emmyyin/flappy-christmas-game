@@ -9,7 +9,7 @@ This is a Flappy Reindeer Game. The basis of the game was created by following a
 
 The game was developed in [VS code](https://code.visualstudio.com/) using the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. 
 
-**OBS!** Press "Go Live" in the bottom right corned or the VS Code editor.
+**OBS!** Press "Go Live" in the bottom right corned of the VS Code editor.
 
 
 ### Features
